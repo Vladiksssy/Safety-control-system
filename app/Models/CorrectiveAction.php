@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CorrectiveAction extends Model
 {
     use HasFactory;
-    protected $table = ['incident_id','description','implemented_at'];
+    protected $fillable = ['incident_id','description','implemented_at'];
     public function incident()
     {
         return $this->belongsTo(Incident::class);

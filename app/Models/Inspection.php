@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Inspection extends Model
 {
     use HasFactory;
-    protected $table = ['inspector_name','date','findings'];
+    protected $fillable = ['inspector_name','date','findings'];
 }
