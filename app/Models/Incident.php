@@ -10,5 +10,8 @@ class Incident extends Model
     use HasFactory;
 
     protected $fillable = ['description', 'reported_at', 'status'];
-
+    public function correctiveActions()
+    {
+        return $this->hasMany(CorrectiveAction::class);
+    }
 }
