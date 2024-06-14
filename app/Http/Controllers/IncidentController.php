@@ -12,20 +12,20 @@ class IncidentController extends Controller
     }
 
     public function store(Request $request){
-        $incident = Incident::query()->create($request->all());
+        $incident = Incident::create($request->all());
         return response()->json($incident, 201);
     }
 
     public function show($id){
-        $incident = Incident::query()->findOrFail($id);
+        $incident = Incident::findOrFail($id);
     }
     public function update(Request $request, $id){
-        $incident = Incident::query()->findOrFail($id);
+        $incident = Incident::findOrFail($id);
         $incident->update($request->all());
         return response()->json($incident, 200);
     }
     public function destroy($id){
-        $incident = Incident::query()->findOrFail($id)->delete();
+        $incident = Incident::findOrFail($id)->delete();
         return response()->json(null, 204);
     }
 }

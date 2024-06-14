@@ -12,21 +12,21 @@ class CorrectiveActionController extends Controller
     }
 
     public function store(Request $request){
-        $correctiveAction =CorrectiveAction::query()->create($request->all());
+        $correctiveAction =CorrectiveAction::create($request->all());
         return response()->json($correctiveAction,201);
     }
 
     public function show($id){
-        return CorrectiveAction::query()->findOrFail($id);
+        return CorrectiveAction::findOrFail($id);
     }
 
     public function update(Request $request, $id){
-        $correctiveAction=CorrectiveAction::query()->findOrFail($id);
+        $correctiveAction=CorrectiveAction::findOrFail($id);
         $correctiveAction->update($request->all());
         return response()->json($correctiveAction,200);
     }
     public function destroy($id){
-        CorrectiveAction::query()->findOrFail($id)->delete();
+        CorrectiveAction::findOrFail($id)->delete();
         return response()->json(null,204);
     }
 }

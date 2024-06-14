@@ -11,19 +11,19 @@ class EmployeeController extends Controller
         return Employee::all();
     }
     public function store(Request $request){
-        $employee = Employee::query()->create($request->all());
+        $employee = Employee::create($request->all());
         return response()->json($employee, 201);
     }
     public function show($id){
-        return Employee::query()->findOrFail($id);
+        return Employee::findOrFail($id);
     }
     public function update(Request $request, $id){
-        $employee = Employee::query()->findOrFail($id);
+        $employee = Employee::findOrFail($id);
         $employee->update($request->all());
         return response()->json($employee, 200);
     }
     public function destroy($id){
-        Employee::query()->findOrFail($id)->delete();
+        Employee::findOrFail($id)->delete();
         return response(null, 204);
     }
 }
