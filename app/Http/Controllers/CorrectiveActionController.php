@@ -2,31 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CorrectiveAction;
+use App\Services\CorrectiveActionService;
 use Illuminate\Http\Request;
 
 class CorrectiveActionController extends Controller
 {
+
+    protected $correctiveActionService;
+    public function __construct(CorrectiveActionService $correctiveActionService){
+        $this->correctiveActionService = $correctiveActionService;
+    }
+
     public function index(){
-        return CorrectiveAction::all();
+        return response()->json($this->correctiveActionService->getCorrectiveActions());
     }
 
     public function store(Request $request){
-        $correctiveAction =CorrectiveAction::create($request->all());
+        $correctiveAction = $this->correctiveActionService->createCorrectiveAction($request->all());
         return response()->json($correctiveAction,201);
     }
 
     public function show($id){
-        return CorrectiveAction::findOrFail($id);
+        return response()->json($this->correctiveActionService->getCorrectiveActionById($id));
     }
 
     public function update(Request $request, $id){
-        $correctiveAction=CorrectiveAction::findOrFail($id);
-        $correctiveAction->update($request->all());
+        $correctiveAction= $this->correctiveActionService->updateCorrectiveAction($request->all(), $id);
         return response()->json($correctiveAction,200);
     }
     public function destroy($id){
-        CorrectiveAction::findOrFail($id)->delete();
+        $this->correctiveActionService->deleteCorrectiveAction($id);
         return response()->json(null,204);
     }
 }
