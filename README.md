@@ -72,9 +72,13 @@ To start the application, use Sail:
 ## Services
 This project uses several services, each managed by its own service class:
 
-- CorrectiveActionService
-- EmployeeService
-- IncidentService
-- InspectionService
+### CorrectiveActionService
+Handles the management of corrective actions within the system. Provides methods to create, update, delete, and retrieve corrective actions.
+### EmployeeService
+Manages employee data and related operations. Provides methods to add, update, remove, and retrieve employee details.
+### IncidentService
+Responsible for handling incidents and their details. Includes methods for reporting, updating, resolving, and querying incidents. 
+### InspectionService
+Manages inspection records and related activities. Provides functionality for scheduling, performing, and reviewing inspections.
 
 These services encapsulate the business logic and interact with the repository classes to perform CRUD operations.
