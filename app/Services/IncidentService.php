@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\IncidentReported;
 use App\Repositories\Interfaces\IncidentRepositoryInterface;
 class IncidentService
 {
@@ -18,7 +19,9 @@ class IncidentService
         return $this->incidentRepository->find($id);
     }
     public function createIncident(array $data){
-        return $this->incidentRepository->create($data);
+        $incident = $this->incidentRepository->create($data);
+        IncidentReported::dispatch($incident);
+        return $incident;
     }
     public function updateIncident(array $data,$id){
         return $this->incidentRepository->update($data, $id);
