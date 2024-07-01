@@ -27,9 +27,10 @@ class IncidentService
         return $this->incidentRepository->delete($id);
     }
 
-
-
-
+    public function getIncidentsForDropdown()
+    {
+        return $this->incidentRepository->all()->pluck('description', 'id');
+    }
 
 
 }

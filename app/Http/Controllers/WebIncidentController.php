@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\IncidentService;
+use Carbon\Carbon;
+
 class WebIncidentController extends Controller
 {
     protected $incidentService;
@@ -22,7 +24,9 @@ class WebIncidentController extends Controller
     }
 
     public function store(Request $request){
-        $this->incidentService->createIncident($request->all());
+        $data = $request->all();
+        $data['reported_at'] = Carbon::parse($request->input('reported_at'));
+        $this->incidentService->createIncident($data);
         return redirect()->route('incidents.index');
     }
 
@@ -37,7 +41,9 @@ class WebIncidentController extends Controller
     }
 
     public function update(Request $request, $id){
-        $this->incidentService->updateIncident($request->all(), $id);
+        $data = $request->all();
+        $data['reported_at'] = Carbon::parse($request->input('reported_at'));
+        $this->incidentService->updateIncident($data, $id);
         return redirect()->route('incidents.index');
     }
 

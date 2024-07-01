@@ -10,6 +10,8 @@
                 <tr>
                     <th class="py-2 px-4 border-b">ID</th>
                     <th class="py-2 px-4 border-b">Description</th>
+                    <th class="py-2 px-4 border-b">Reported At</th>
+                    <th class="py-2 px-4 border-b">Status</th>
                     <th class="py-2 px-4 border-b">Actions</th>
                 </tr>
                 </thead>
@@ -18,6 +20,8 @@
                     <tr>
                         <td class="py-2 px-4 border-b">{{ $incident->id }}</td>
                         <td class="py-2 px-4 border-b">{{ $incident->description }}</td>
+                        <td class="py-2 px-4 border-b">{{ $incident->reported_at }}</td>
+                        <td class="py-2 px-4 border-b">{{ $incident->status }}</td>
                         <td class="py-2 px-4 border-b">
                             <a href="{{ route('incidents.show', $incident->id) }}" class="text-blue-500">View</a>
                             <a href="{{ route('incidents.edit', $incident->id) }}" class="text-yellow-500 ml-2">Edit</a>
