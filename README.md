@@ -82,3 +82,37 @@ Responsible for handling incidents and their details. Includes methods for repor
 Manages inspection records and related activities. Provides functionality for scheduling, performing, and reviewing inspections.
 
 These services encapsulate the business logic and interact with the repository classes to perform CRUD operations.
+
+## Web Interface
+
+The web interface allows for managing incidents, corrective actions, inspections, and employees via CRUD operations. It is built using Laravel Blade templates and styled with Tailwind CSS.
+
+### Web Routes
+
+#### Incidents
+- `/incidents`: Manage incidents.
+- `/incidents/create`: Create a new incident.
+- `/incidents/{id}/edit`: Edit an incident.
+
+#### Corrective Actions
+- `/corrective-actions`: Manage corrective actions.
+- `/corrective-actions/create`: Create a new corrective action.
+- `/corrective-actions/{id}/edit`: Edit a corrective action.
+
+#### Inspections
+- `/inspections`: Manage inspections.
+- `/inspections/create`: Create a new inspection.
+- `/inspections/{id}/edit`: Edit an inspection.
+
+#### Employees
+- `/employees`: Manage employees.
+- `/employees/create`: Create a new employee.
+- `/employees/{id}/edit`: Edit an employee.
+
+### Notes
+- **CRUD Operations**: All basic CRUD (Create, Read, Update, Delete) operations are supported for incidents, corrective actions, inspections, and employees.
+- **Blade Templates**: The interface is built using Blade templates.
+- **Tailwind CSS**: Styling is handled by Tailwind CSS.
+- **Forms and Views**: Simple and user-friendly forms and views for data management.
+
+Use the specified routes to navigate and manage data through the web interface.
