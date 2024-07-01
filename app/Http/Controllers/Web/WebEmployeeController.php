@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Services\EmployeeService;
+use Illuminate\Http\Request;
+
 class WebEmployeeController extends Controller
 {
     protected $employeeService;

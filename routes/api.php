@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\CorrectiveActionController;
+use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\Api\IncidentController;
+use App\Http\Controllers\Api\InspectionController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\IncidentController;
-use App\Http\Controllers\InspectionController;
-use App\Http\Controllers\CorrectiveActionController;
 
 Route::apiResource('incidents', IncidentController::class);
 Route::apiResource('employees', EmployeeController::class);
